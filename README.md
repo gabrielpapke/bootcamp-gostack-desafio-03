@@ -32,6 +32,11 @@ Enjoy it! 😁
 
 - [x] **`Remover um repositório da sua API`**: Para cada item da sua lista, deve possuir um botão com o texto **Remover** que, ao clicar, irá chamar uma função para remover esse item da lista do seu frontend e da sua API.
 
+### Bonus
+
+- Função de **Curtir Repositório** implementada. Ao clicar no botão curtir, o repositório é atualizado com o contador de likes retornado pela API.
+
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT.
