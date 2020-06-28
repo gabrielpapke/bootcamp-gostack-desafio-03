@@ -8,11 +8,20 @@ function App() {
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
-    api.get('repositories').then(({ data }) => setRepositories(data))
+    api.get('repositories').then(({ data }) => setRepositories(data));
   }, [])
 
   async function handleAddRepository() {
-    // TODO
+    const newRepository = {
+      title: `Desafio React.js 03 ${Date.now()}`,
+      url: "https://github.com/gabrielpapke/bootcamp-gostack-desafio-03",
+      techs: ["React.js", "Javascript"]
+    };
+
+    const { data } = await api.post('repositories', newRepository);
+
+    setRepositories([...repositories, data])
+
   }
 
   async function handleRemoveRepository(id) {
