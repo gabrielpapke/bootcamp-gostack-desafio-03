@@ -33,7 +33,12 @@ button {
   font-size: 14px;
 }
 
-div li button {
+div li button.like {
   margin: 0 15px;
+  background: #4267B2;
+}
+
+div li button.remove {
+  margin: 0px;
   background: #ca4949;
 }

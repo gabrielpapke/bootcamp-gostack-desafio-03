@@ -34,20 +34,35 @@ function App() {
     setRepositories(newRepositoriesList)
   }
 
+  async function handleLike(id) {
+    const { data } = await api.post(`repositories/${id}/like`)
+
+    const newRepositoriesList = repositories.map(repo => {
+      if (repo.id === id) return data
+      return repo;
+    })
+
+    setRepositories(newRepositoriesList)
+  }
+
   return (
     <div>
       <ul data-testid="repository-list">
         {repositories.map((repo, index) => (
           <li key={repo.id}>
-          {repo.title}
+            {repo.title}
 
-          <button onClick={() => handleRemoveRepository(repo.id)}>
-            Remover
-          </button>
-        </li>
+            <button className="like" onClick={() => handleLike(repo.id)}>
+              ({repo.likes}) Curtir
+            </button>
+
+            <button className="remove" onClick={() => handleRemoveRepository(repo.id)}>
+              Remover
+            </button>
+          </li>
         ))}
       </ul>
-      
+        
       <button onClick={handleAddRepository}>Adicionar</button>
     </div>
   );
